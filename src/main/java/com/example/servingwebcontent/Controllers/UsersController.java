@@ -47,5 +47,4 @@ public class UsersController {
 
         return usersRepository.save(user);
     }
-
 }
