@@ -2,6 +2,8 @@ package com.example.servingwebcontent.Controllers;
 
 import com.example.servingwebcontent.Models.User;
 import com.example.servingwebcontent.Repositorys.UsersRepository;
+import com.example.servingwebcontent.Services.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,39 +14,25 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UsersController {
-
-    private UsersRepository usersRepository;
-
-    public UsersController(UsersRepository usersRepository) {
-        this.usersRepository = usersRepository;
-    }
-
-    @PutMapping
-    public User editUser( User user) {
-
-        return usersRepository.save(user);
-    }
+    @Autowired
+    private UsersService usersService;
 
     @DeleteMapping
-    public  Integer DelUser(@RequestParam  (name = "id") Integer Id){
-        usersRepository.deleteById(Id);
-        return Id;
+    public  ResponseEntity delUser(@RequestParam  (name = "id") Integer id){
+        return usersService.delUser(id);
     }
-
-    @GetMapping
-    public ResponseEntity allUsers(@RequestParam(name = "id", required = false) Integer id) {
-
-        if  (id == null) {
-            return ResponseEntity.ok(usersRepository.findAll());
-        }
-        else {
-            return ResponseEntity.ok(usersRepository.findById(id).get());
-        }
-    }
-
     @PostMapping
     public User postUser(User user) {
-
-        return usersRepository.save(user);
+        return usersService.postUser(user);
     }
+    @GetMapping
+    public ResponseEntity allUsers(@RequestParam(name = "id", required = false) Integer id) {
+        return usersService.getUsers(id);
+    }
+    @PutMapping
+    public User editUser(User user) {
+        return usersService.editUser(user);
+    }
+
+
 }
