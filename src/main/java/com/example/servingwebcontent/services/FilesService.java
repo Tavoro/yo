@@ -14,12 +14,8 @@ import java.io.InputStream;
 @Service
 public class FilesService {
 
-    private UsersRepository usersRepository;
-
     public void getFile(HttpSession session, HttpServletResponse response,String dir,String name) throws Exception {
         try {
-
-
             File fileToDownload = new File(dir+name);
 
             InputStream inputStream = new FileInputStream(fileToDownload);
