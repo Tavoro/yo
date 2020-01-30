@@ -1,9 +1,7 @@
-package com.example.servingwebcontent.Models;
+package com.example.servingwebcontent.models;
 
 
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import javax.persistence.*;
 
