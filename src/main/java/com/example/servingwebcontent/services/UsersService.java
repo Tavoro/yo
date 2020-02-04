@@ -26,21 +26,7 @@ public class UsersService {
     }
 
 
-    public User editUser(Integer id,String name,String pass,User user) {
-        user = usersRepository.findById(id).get();
-
-        if (name!=null&&pass!=null) {
-            user.setName(name);
-            user.setPass(pass);
-        }
-        else if(name!=null||pass==null){
-            user.setName(name);
-        }
-        else if(pass!=null||name==null)
-            user.setPass(pass);
-
-        return usersRepository.save(user);
-
+    public User editUser(User user) {return usersRepository.save(user);
     }
 
     public ResponseEntity getUsers(Integer id) {

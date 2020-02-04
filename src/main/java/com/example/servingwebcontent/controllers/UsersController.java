@@ -29,10 +29,7 @@ public class UsersController {
     }
 
     @PutMapping
-    public User editUser(@RequestParam(name = "id", required = false) Integer id,
-                         @RequestParam(name = "name", required = false) String name,
-                         @RequestParam(name = "pass", required = false) String pass,
-                         User user) { return usersService.editUser(id,name,pass,user); }
+    public User editUser(User user) { return usersService.editUser(user); }
 
 
 }
