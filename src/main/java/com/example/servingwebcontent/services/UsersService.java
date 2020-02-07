@@ -35,15 +35,15 @@ public class UsersService {
      * Put запрос.
      * Редактирует юзера.
      * @param user обЪект.
-     * @return
+     * @return Сохраняет обЪект.
      */
     public User editUser(User user) {return usersRepository.save(user);}
 
     /**
      * Get запрос.
-     * Берет юзера или юзеров в зависимости от
-     * @param id
-     * @return находит юзера или юзеров
+     * Берет юзера или юзеров в зависимости от параметра id.
+     * @param id id юзера
+     * @return возвращает юзера или юзеров
      */
     public ResponseEntity getUsers(Integer id) {
         if  (id == null) {
@@ -55,5 +55,10 @@ public class UsersService {
         }
     }
 }
+
+
+
+
+
 
 
