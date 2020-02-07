@@ -51,6 +51,7 @@ public class UsersService {
         }
         else {
             return ResponseEntity.ok(usersRepository.findById(id).get());
+
         }
     }
 }
