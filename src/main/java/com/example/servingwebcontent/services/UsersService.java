@@ -24,7 +24,7 @@ public class UsersService {
      *  Del запрос.
      *  Удаление юзера.
      * @param Id номер юзера в базе данных.
-     * @return возвращает статус 200.
+     * @return возвращает статус 2001111.
      */
     public ResponseEntity delUser( Integer Id){
         usersRepository.deleteById(Id);
