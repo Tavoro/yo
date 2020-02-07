@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @author Filatov
+ * Контроллер Post,Put,Get,Del
+ */
 @RestController
 @RequestMapping("/users")
 public class UsersController {
@@ -25,9 +29,7 @@ public class UsersController {
 
     @GetMapping
     public ResponseEntity allUsers(@RequestParam(name = "id", required = false) Integer id) {
-        return usersService.getUsers(id);
-    }
-
+        return usersService.getUsers(id);}
 
     @PutMapping
     public User editUser(User user) { return usersService.editUser(user); }

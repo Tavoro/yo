@@ -12,23 +12,39 @@ public class UsersService {
     @Autowired
     private UsersRepository usersRepository;
 
+    /**
+     *  Post запрос.
+     *  Добавляет юзера.
+     * @param user обЪект.
+     * @return запись обЪекта.
+     */
+    public User postUser(User user) {return usersRepository.save(user);}
 
-    public User postUser(User user) {
-
-
-        return usersRepository.save(user);
-    }
-
-
+    /**
+     *  Del запрос.
+     *  Удаление юзера.
+     * @param Id номер юзера в базе данных.
+     * @return возвращает статус 200.
+     */
     public ResponseEntity delUser( Integer Id){
         usersRepository.deleteById(Id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
+    /**
+     * Put запрос.
+     * Редактирует юзера.
+     * @param user обЪект.
+     * @return
+     */
+    public User editUser(User user) {return usersRepository.save(user);}
 
-    public User editUser(User user) {return usersRepository.save(user);
-    }
-
+    /**
+     * Get запрос.
+     * Берет юзера или юзеров в зависимости от
+     * @param id
+     * @return находит юзера или юзеров
+     */
     public ResponseEntity getUsers(Integer id) {
         if  (id == null) {
             return ResponseEntity.ok(usersRepository.findAll());
